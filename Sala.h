@@ -21,6 +21,7 @@ public:
 	void setNumSala(int nSala);
 	void setCapacidade(int cap);
 	friend ostream& operator<<(ostream& os, const Sala& elem);
+	friend bool operator==(int num, Sala &elem);
 
 };
 
@@ -40,7 +41,7 @@ Sala::Sala(int nsala, int numAssento, int qtFil):fileiras(){
 	Fileira *f, fIn;
 
 	for(i=0;i<qtFileira;i++){
-		f = new Fileira(10, 65+i);
+		f = new (numAssento, 65+i);
 		fIn = *f;
 
 		delete(f);
@@ -67,11 +68,15 @@ void Sala::setCapacidade(int cap){
 	capacidade = cap;
 }
 
-ostream& operator<<(ostream& os, const Sala& elem)
-{
+ostream& operator<<(ostream& os, const Sala& elem){
     os << "Sala: " << elem.numSala << " - Capacidade: " <<elem.capacidade;
     return os;
 }
 
+bool operator==(int num, Sala &elem){
+  if(num == elem.numSala)
+    return true;
+  return false;
+}
 
 #endif

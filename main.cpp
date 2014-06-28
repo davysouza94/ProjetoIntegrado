@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 	gerenciarSala salas;
 
-	int opcao;
+	int opcao = 0;
 
 	while (opcao != 0) {
 		cout << "Escolha uma das opções: " << endl;
