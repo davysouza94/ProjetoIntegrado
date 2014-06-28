@@ -27,7 +27,7 @@ void gerenciarSala::inserirSala(){
 	cin >> numFileira;
 	cout << "Informe o numero de assentos por fileira:" << endl;
 	cin >> numAssentos;
-	Sala temp(num, numAssentos, numFileira);
+	Sala temp(num, numFileira, numAssentos);
 	salas.insereFim(temp);
 }
 
