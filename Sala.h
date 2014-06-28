@@ -75,8 +75,7 @@ void Sala::setSituacao(int sit){
 	situacao = (Situacao)sit;
 }
 
-ostream& operator<<(ostream& os, const Sala& elem)
-{
+ostream& operator<<(ostream& os, const Sala& elem){
 	os << "Sala: " << elem.numSala << " - Capacidade: " <<elem.capacidade<< " - Situacao: "<< elem.situacao;
     return os;
 }
