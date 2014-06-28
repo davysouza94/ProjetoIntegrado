@@ -24,6 +24,7 @@ public:
 	void setCapacidade(int cap);
 	void setSituacao(int sit);
 	friend ostream& operator<<(ostream& os, const Sala& elem);
+	bool operator==(const int num);
 
 };
 
@@ -79,6 +80,13 @@ ostream& operator<<(ostream& os, const Sala& elem)
 	os << "Sala: " << elem.numSala << " - Capacidade: " <<elem.capacidade<< " - Situacao: "<< elem.situacao;
     return os;
 }
+
+bool Sala::operator==(const int num){
+  if(num == numSala)
+    return true;
+  return false;
+}
+
 
 
 #endif

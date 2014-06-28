@@ -20,8 +20,7 @@ public:
 	bool deletaValor(int elem);
 	void libera();
 	void exibe();
-	
-	Sala buscaElem(int num);
+	No<Tinfo>* busca(int chave);
 private:
 	No<Tinfo> *pl;
 };
@@ -155,6 +154,20 @@ void Lista<Tinfo>::exibe(){
 		aux->exibe();
 		aux=aux->prox;
 	}
+}
+
+template <class Tinfo>
+No<Tinfo>* Lista<Tinfo>::busca(int chave){
+	No<Tinfo> *aux;
+	if(listaVazia())
+		return 0;
+	aux = pl;
+	while(aux!=NULL){
+		if(aux->elem == chave)
+			return aux;
+		aux = aux->prox;
+	}
+	return NULL;
 }
 
 #endif

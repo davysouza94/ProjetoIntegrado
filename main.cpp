@@ -26,7 +26,11 @@ int main() {
 			salas.inserirSala();
 			break;
 		case 2:
-
+			try{
+				salas.situacao();
+			}catch(...){
+				cout << "bleh";
+			}
 			break;
 		case 3:
 			salas.exibeSalas();
