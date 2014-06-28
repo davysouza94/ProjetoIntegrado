@@ -22,6 +22,7 @@ public:
 	int getCapacidade();
 	void setNumSala(int nSala);
 	void setCapacidade(int cap);
+	void setSituacao(int sit);
 	friend ostream& operator<<(ostream& os, const Sala& elem);
 
 };
@@ -67,6 +68,10 @@ void Sala::setNumSala(int nSala){
 
 void Sala::setCapacidade(int cap){
 	capacidade = cap;
+}
+
+void Sala::setSituacao(int sit){
+	situacao = (Situacao)sit;
 }
 
 ostream& operator<<(ostream& os, const Sala& elem)

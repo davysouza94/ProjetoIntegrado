@@ -44,6 +44,8 @@ void gerenciarSala::situacao(){
 	cin >> num;
 	cout << "Informe a Situacao da Sala: " << endl;
 	cin >> sit;
+
+	salas.buscaElem(num).setSituacao(sit);
 }
 
 #endif
