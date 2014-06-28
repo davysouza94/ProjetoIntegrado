@@ -99,8 +99,9 @@ void Sessao::setFilme(string nomeFilme){
 
 ostream& operator<<(ostream& os, const Sessao& elem){
 	os << "ID da sessão: " << elem.idSessao << "ID da sala: " << elem.idSala << std::endl;
-	os << "Filme: " << elem.filme << "Início: " << elem.inicio << "Término: " << elem.fim;
-	os << "Disponibilidade: " << elem.encerrado;
+	os << "Filme: " << elem.filme << std::endl;
+	os << "Início: " << elem.inicio << " - Término: " << elem.fim << std::endl;
+	os << "Disponibilidade: " << elem.encerrado << std::endl << std::endl;
     return os;
 }
 
