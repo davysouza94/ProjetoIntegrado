@@ -25,6 +25,7 @@ public:
 	void setSituacao(int sit);
 	friend ostream& operator<<(ostream& os, const Sala& elem);
 	bool operator==(const int num);
+	bool operator!=(const int num);
 
 };
 
@@ -86,6 +87,11 @@ bool Sala::operator==(const int num){
   return false;
 }
 
+bool Sala::operator!=(const int num){
+  if(num != numSala)
+    return true;
+  return false;
+}
 
 
 #endif

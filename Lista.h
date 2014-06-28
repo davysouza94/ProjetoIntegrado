@@ -120,7 +120,7 @@ bool Lista<Tinfo>::deletaValor(int info){
 	if(listaVazia())
 		return 0;
 
-	if(pl->chave == info){
+	if(pl->elem == info){
 		auxDel = pl;
 		pl = pl->prox;
 		delete (auxDel);
@@ -128,10 +128,10 @@ bool Lista<Tinfo>::deletaValor(int info){
 	}
 
 	auxIt = pl;
-	while(auxIt->prox->prox!=NULL && auxIt->prox->chave!=info)
+	while(auxIt->prox->prox!=NULL && auxIt->prox->elem!=info)
 		auxIt = auxIt->prox;
 
-	if(auxIt->prox!=NULL  && auxIt->prox->chave == info){
+	if(auxIt->prox!=NULL  && auxIt->prox->elem == info){
 		auxDel = auxIt->prox;
 		auxIt->prox = auxIt->prox->prox;
 		delete(auxDel);
