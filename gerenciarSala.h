@@ -15,6 +15,7 @@ public:
 	void exibeSalas();
 	void situacao();
 	No<Sala>* buscarSala(int chave);
+	void ordenarSalas(); //ordena salas de acordo com o id
 };
 
 gerenciarSala::gerenciarSala() :
@@ -37,7 +38,7 @@ void gerenciarSala::inserirSala() {
 		salas.insereFim(temp);
 		std::cout << "Sala criada com sucesso" << std::endl;
 	} else {
-		while (opc != 'S' || opc != 's' || opc != 'N' || opc != 'n') {
+		while (opc != 'S' && opc != 's' && opc != 'N' && opc != 'n') {
 			std::cout << "Sala " << num << " já existe, deseja substituir?"
 					<< std::endl;
 			std::cout << "<S/N>";
@@ -85,4 +86,7 @@ No<Sala>* gerenciarSala::buscarSala(int chave) {
 	return salas.busca(chave);
 }
 
+void gerenciarSala::ordenarSalas(){
+	salas.ordena();
+}
 #endif

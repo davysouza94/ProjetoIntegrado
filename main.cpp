@@ -61,6 +61,7 @@ void gerenciaSala(gerenciarSala &salas){
 				return;
 			case 1:
 				salas.inserirSala();
+				salas.ordenarSalas();
 				break;
 			case 2:
 				try{

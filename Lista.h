@@ -20,6 +20,7 @@ public:
 	bool deletaValor(int elem);
 	void libera();
 	void exibe();
+	void ordena();
 	No<Tinfo>* busca(int chave);
 private:
 	No<Tinfo> *pl;
@@ -47,7 +48,11 @@ template <class Tinfo>
 void Lista<Tinfo>::insereInicio(Tinfo info){
 	No<Tinfo> *aux, *novo;
 	aux = pl;
-	novo = new No<Tinfo>(info);
+	try{
+		novo = new No<Tinfo>(info);
+	}catch(std::bad_alloc& bad) {
+		std::cout << "Memória insuficiente" << std::endl;
+	}
 	pl = novo;
 	pl->prox = aux;
 }
@@ -55,7 +60,11 @@ template <class Tinfo>
 void Lista<Tinfo>::insereFim(Tinfo info){
 	No<Tinfo> *novo, *aux;
 
-	novo = new No<Tinfo>(info);
+	try{
+		novo = new No<Tinfo>(info);
+	}catch(std::bad_alloc& bad) {
+		std::cout << "Memória insuficiente" << std::endl;
+	}
 
 	if(listaVazia()){
 		insereInicio(info);
@@ -169,5 +178,27 @@ No<Tinfo>* Lista<Tinfo>::busca(int chave){
 	}
 	return NULL;
 }
+
+template <class Tinfo>
+void Lista<Tinfo>::ordena(){
+	No<Tinfo> *aux1, *aux2;
+	Tinfo swap;
+
+	aux1 = pl;
+	while(aux1!=NULL){
+		aux2 = aux1;
+		while(aux2 != NULL){
+			if(aux1->elem > aux2->elem){
+				swap = aux1->elem;
+				aux1->elem = aux2->elem;
+				aux2->elem = swap;
+			}
+			aux2 = aux2->prox;
+		}
+		aux1 = aux1->prox;
+	}
+
+}
+
 
 #endif

@@ -26,7 +26,10 @@ public:
 	friend ostream& operator<<(ostream& os, const Sala& elem);
 	bool operator==(const int num);
 	bool operator!=(const int num);
-
+	bool operator>(const int num);
+	bool operator>(const Sala elem);
+	bool operator<(const int num);
+	bool operator<(const Sala elem);
 };
 
 Sala::Sala():fileiras(){
@@ -93,5 +96,28 @@ bool Sala::operator!=(const int num){
   return false;
 }
 
+bool Sala::operator>(const int num){
+  if(numSala > num)
+    return true;
+  return false;
+}
+
+bool Sala::operator>(const Sala elem){
+  if(numSala > elem.numSala)
+    return true;
+  return false;
+}
+
+bool Sala::operator<(const int num){
+  if(numSala < num)
+    return true;
+  return false;
+}
+
+bool Sala::operator<(const Sala elem){
+  if(numSala < elem.numSala)
+    return true;
+  return false;
+}
 
 #endif
