@@ -3,6 +3,7 @@
 
 #include "Fileira.h"
 #include "Lista.h"
+#include <string>
 
 class Sessao{
 private:
