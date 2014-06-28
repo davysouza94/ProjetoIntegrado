@@ -18,10 +18,18 @@ private:
 	Assento assento;
 
 public:
+	Ingresso(Tipo tipo);
 	double getValor();
 	void setDtIngresso(Data data);
 	void setValor(double v);
 };
+
+Ingresso::Ingresso(Tipo tipo){
+	if(tipo == 0)
+		valor = 3.00;
+	else
+		valor = 1.50;
+}
 
 double Ingresso::getValor(){
 	return valor;
