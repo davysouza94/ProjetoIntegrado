@@ -27,6 +27,7 @@ public:
 	void setNumVendido(int numVendido);
 	string getFilme();
 	void setFilme(string nomeFilme);
+	friend ostream& operator<<(ostream& os, const Sessao& elem);
 };
 
 Sessao::Sessao(){
@@ -95,5 +96,13 @@ string Sessao::getFilme(){
 void Sessao::setFilme(string nomeFilme){
 	filme = nomeFilme;
 }
+
+ostream& operator<<(ostream& os, const Sessao& elem){
+	os << "ID da sessão: " << elem.idSessao << "ID da sala: " << elem.idSala << std::endl;
+	os << "Filme: " << elem.filme << "Início: " << elem.inicio << "Término: " << elem.fim;
+	os << "Disponibilidade: " << elem.encerrado;
+    return os;
+}
+
 
 #endif

@@ -24,6 +24,7 @@ public:
 	void setCapacidade(int cap);
 	void setSituacao(int sit);
 	void inserirSessao();
+	void exibirSessoes();
 	friend ostream& operator<<(ostream& os, const Sala& elem);
 	bool operator==(const int num);
 	bool operator!=(const int num);
@@ -57,10 +58,19 @@ void Sala::inserirSessao(){
 	std::cout << "Insira o inicio e o fim do filme: " << std::endl;
 	std::cin >> inicio >> fim;
 
-	s = new Sessao(numSala, qtSessoes, inicio, fim, nome, 10, 10);
-	sIn = *s;
-	sessoes.insereFim(sIn);
-	qtSessoes++;
+	try{
+		s = new Sessao(numSala, qtSessoes, inicio, fim, nome, 10, 10);
+		sIn = *s;
+		sessoes.insereFim(sIn);
+		qtSessoes++;
+	}catch(...){
+		std::cout << "Erro" << std::endl;
+	}
+
+}
+
+void Sala::exibirSessoes(){
+	sessoes.exibe();
 }
 int Sala::getNumSala(){
 	return numSala;

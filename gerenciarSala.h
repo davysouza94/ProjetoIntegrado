@@ -18,6 +18,7 @@ public:
 	No<Sala>* buscarSala(int chave);
 	void ordenarSalas(); //ordena salas de acordo com o id
 	void inserirSessao();
+	void exibeSessoes();
 };
 
 gerenciarSala::gerenciarSala():salas() {
@@ -73,6 +74,15 @@ void gerenciarSala::inserirSessao(){
 
 void gerenciarSala::exibeSalas() {
 	salas.exibe();
+}
+void gerenciarSala::exibeSessoes(){
+	No<Sala> *aux;
+	aux = salas.getPl();
+
+	while(aux!=NULL){
+		aux->elem.exibirSessoes();
+		aux = aux->prox;
+	}
 }
 
 void gerenciarSala::situacao() {

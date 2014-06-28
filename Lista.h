@@ -22,6 +22,7 @@ public:
 	void exibe();
 	void ordena();
 	No<Tinfo>* busca(int chave);
+	No<Tinfo>* getPl();
 private:
 	No<Tinfo> *pl;
 };
@@ -179,6 +180,8 @@ No<Tinfo>* Lista<Tinfo>::busca(int chave){
 	return NULL;
 }
 
+
+
 template <class Tinfo>
 void Lista<Tinfo>::ordena(){
 	No<Tinfo> *aux1, *aux2;
@@ -199,6 +202,13 @@ void Lista<Tinfo>::ordena(){
 	}
 
 }
+
+template <class Tinfo>
+No<Tinfo>* Lista<Tinfo>::getPl(){
+	return pl;
+}
+
+
 
 
 #endif

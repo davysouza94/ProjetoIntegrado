@@ -16,5 +16,4 @@ public:
 gerenciarSessao::gerenciarSessao(){
 }
 
-
 #endif

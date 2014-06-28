@@ -73,7 +73,6 @@ void gerenciaSala(gerenciarSala &salas){
 				break;
 			case 5:
 				salas.situacao();
-
 				break;
 			default:
 				break;
@@ -85,7 +84,7 @@ void gerenciaSessao(gerenciarSala &salas){
 	cout << "Escolha uma das opcoes: " << endl;
 			cout << "0 - Voltar" << endl;
 			cout << "1 - Inserir Sessão" << endl;
-			cout << "2 - " << endl;
+			cout << "2 - Exibir Sessoes" << endl;
 			cout << "3 - " << endl;
 			cout << "4 - " << endl;
 			cout << "5 - " << endl;
@@ -98,6 +97,7 @@ void gerenciaSessao(gerenciarSala &salas){
 				salas.inserirSessao();
 				break;
 			case 2:
+				salas.exibeSessoes();
 				break;
 			case 3:
 				break;
@@ -105,7 +105,6 @@ void gerenciaSessao(gerenciarSala &salas){
 				break;
 			case 5:
 				salas.situacao();
-
 				break;
 			default:
 				break;
