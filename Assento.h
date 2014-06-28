@@ -8,19 +8,28 @@ private:
 	char idFileira;
 
 public:
+	Assento();
 	Assento(int idassento, int idfila);
 	bool verificaDisponibilidade();
 	~Assento();
 
 };
 
+Assento::Assento(){
+	idAssento = 0;
+	disponibilidade = 0;
+	idFileira = 0;
+}
 Assento::Assento(int idassento,int idfila){
 	idAssento = idassento;
 	disponibilidade = 0;
 	idFileira = idfila;
+	cout<<"CriandoAssento" << idAssento << " " << idFileira << "" << std::endl;
 
 }
+Assento::~Assento(){
 
+}
 bool Assento::verificaDisponibilidade(){
 	if(disponibilidade == 0) //se esta disponivel, retorna 1;
 		return 1;

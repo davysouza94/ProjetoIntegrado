@@ -13,7 +13,8 @@ private:
 	Lista < Assento > assentos;
 	
 public:
-	Fileira(int n,int idfila);
+	Fileira();
+	Fileira(int n,char idfila);
 	~Fileira();
 
 	int insereAssento();
@@ -21,8 +22,22 @@ public:
 
 };
 
+Fileira::Fileira(){
+	idFileira = 0;
+	numAssentos = 0;
+}
+Fileira::Fileira(int n,char idfila):assentos(){
+	numAssentos = n;
+	idFileira = idfila;
 
-Fileira::Fileira(int n = 10,int idfila = 0):idFileira(idfila), numAssentos(n), assentos(){
+	int i;
+	Assento *a, aIn;
+	for(i=0;i<numAssentos;i++){
+		a = new Assento(i, idfila);
+		aIn = *a;
+		delete(a);
+		assentos.insereFim(aIn);
+	}
 }
 
 Fileira::~Fileira(){
