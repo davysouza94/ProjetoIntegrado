@@ -3,12 +3,14 @@
 
 //#include "Lista.h"
 #include "Fileira.h"
+#include "Situacao.h"
 
 class Sala{
 private:
 	int numSala;
 	int capacidade;
 	int qtFileira;
+	Situacao situacao;
 
 	Lista < Fileira > fileiras;
 
@@ -28,11 +30,13 @@ Sala::Sala():fileiras(){
 	qtFileira = 10;
 	numSala = 0;
 	capacidade = qtFileira*10;
+	situacao = disponivel;
 }
 Sala::Sala(int nsala, int numAssento, int qtFil):fileiras(){
 	numSala = nsala;
 	qtFileira = qtFil;
 	capacidade = numAssento*qtFileira;
+	situacao = disponivel;
 
 	int i;
 	Fileira *f, fIn;
@@ -67,7 +71,7 @@ void Sala::setCapacidade(int cap){
 
 ostream& operator<<(ostream& os, const Sala& elem)
 {
-    os << "Sala: " << elem.numSala << " - Capacidade: " <<elem.capacidade;
+	os << "Sala: " << elem.numSala << " - Capacidade: " <<elem.capacidade<< " - Situacao: "<< elem.situacao;
     return os;
 }
 

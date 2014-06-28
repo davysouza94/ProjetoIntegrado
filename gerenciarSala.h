@@ -13,6 +13,7 @@ public:
 	gerenciarSala();
 	void inserirSala();
 	void exibeSalas();
+	void situacao();
 };
 
 gerenciarSala::gerenciarSala(): salas(){
@@ -33,6 +34,16 @@ void gerenciarSala::inserirSala(){
 
 void gerenciarSala::exibeSalas(){
 	salas.exibe();
+}
+
+void gerenciarSala::situacao(){
+	int num, sit;
+
+	salas.exibe();
+	cout << "Informe o Numero da Sala: " << endl;
+	cin >> num;
+	cout << "Informe a Situacao da Sala: " << endl;
+	cin >> sit;
 }
 
 #endif
