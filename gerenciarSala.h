@@ -19,13 +19,15 @@ gerenciarSala::gerenciarSala(): salas(){
 }
 
 void gerenciarSala::inserirSala(){
-	int num,numFileira;
+	int num,numFileira, numAssentos;
 
 	cout << "Informe o Numero da Sala: " << endl;
 	cin >> num;
 	cout << "Informe o numero de fileiras: " << endl;
 	cin >> numFileira;
-	Sala temp(num, numFileira);
+	cout << "Informe o numero de assentos por fileira:" << endl;
+	cin >> numAssentos;
+	Sala temp(num, numFileira, numAssentos);
 	salas.insereFim(temp);
 }
 

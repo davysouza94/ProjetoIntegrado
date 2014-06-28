@@ -14,7 +14,7 @@ int main() {
 		cout << "0 - Finalizar Programa" << endl;
 		cout << "1 - Criar Sala" << endl;
 		cout << "2 - Remover Sala" << endl;
-		cout << "3 - Exibi4 Salas" << endl;
+		cout << "3 - Exibir Salas" << endl;
 		cout << "4 - Capacidade" << endl;
 		cin >> opcao;
 

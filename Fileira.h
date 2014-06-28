@@ -3,37 +3,32 @@
 
 using namespace std;
 
-//#include "Assento.h"
+#include "Assento.h"
 #include "Lista.h"
 
 class Fileira{
 private:
 	char idFileira;
-	//Lista < Assento > assento;
+	int numAssentos;
+	Lista < Assento > assentos;
 	
 public:
-	Fileira(int numassentos,int idfila);
+	Fileira(int n,int idfila);
 	~Fileira();
 
+	int insereAssento();
 	bool verificaDisponibilidade();
 
 };
 
 
-Fileira::Fileira(int numassentos,int idfila){
-//int i;
+Fileira::Fileira(int n = 10,int idfila = 0):idFileira(idfila), numAssentos(n), assentos(){
+}
 
-//	for(i=0;i<numassentos;i++){
-//		Assento a(i,idFileira);
-//		assento.insereFim(a);
-//		a.~Assento();
-//	}
-	idFileira = idfila;
-	}
+Fileira::~Fileira(){
 
+}
 bool Fileira::verificaDisponibilidade(){
 	return 0;
 }
-
-
 #endif

@@ -1,7 +1,8 @@
 #ifndef SALA_H
 #define SALA_H
 
-#include "Lista.h"
+//#include "Lista.h"
+#include "Fileira.h"
 
 class Sala{
 private:
@@ -9,7 +10,7 @@ private:
 	int capacidade;
 	int qtFileira;
 
-	//Lista < Fileira > fileira;
+	Lista < Fileira > fileiras;
 
 public:
 	Sala();
@@ -23,23 +24,31 @@ public:
 
 };
 
-Sala::Sala(){
-	qtFileira = 0;
+Sala::Sala():fileiras(){
+	qtFileira = 10;
 	numSala = 0;
-	capacidade = 0;
+	capacidade = qtFileira*10;
 }
-Sala::Sala(int nsala, int numAssento, int qtFil = 10){
-//	int i;
-//
-//	for(i=0;i<nfileira;i++){
-//		Fileira f(numAssento,i);
-//		fileira.insereFim(f);
-//		f.~Fileira();
-//	}
+Sala::Sala(int nsala, int numAssento, int qtFil):fileiras(){
+	cout << "a";
 
 	numSala = nsala;
-	qtFileira = 10;
+	qtFileira = qtFil;
 	capacidade = numAssento*qtFileira;
+
+	int i;
+	Fileira *f, fIn;
+
+	for(i=0;i<qtFileira;i++){
+		f = new Fileira(10, 65+i);
+		fIn = *f;
+
+		delete(f);
+		fileiras.insereFim(fIn);
+
+	}
+
+
 }
 
 int Sala::getNumSala(){
