@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Lista.h"
 #include "gerenciarSala.h"
 
 using namespace std;
@@ -64,11 +63,7 @@ void gerenciaSala(gerenciarSala &salas){
 				salas.ordenarSalas();
 				break;
 			case 2:
-				try{
-					salas.situacao();
-				}catch(...){
-					cout << "bleh";
-				}
+				salas.situacao();
 				break;
 			case 3:
 				salas.exibeSalas();
@@ -85,7 +80,35 @@ void gerenciaSala(gerenciarSala &salas){
 }
 
 void gerenciaSessao(gerenciarSala &salas){
+	int opcao;
+	cout << "Escolha uma das opcoes: " << endl;
+			cout << "0 - Voltar" << endl;
+			cout << "1 - Inserir Sessão" << endl;
+			cout << "2 - " << endl;
+			cout << "3 - " << endl;
+			cout << "4 - " << endl;
+			cout << "5 - " << endl;
+			cin >> opcao;
 
+			switch (opcao) {
+			case 0:
+				return;
+			case 1:
+				salas.inserirSessao();
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				salas.situacao();
+
+				break;
+			default:
+				break;
+			}
 }
 
 void gerenciaVenda(gerenciarSala &salas){

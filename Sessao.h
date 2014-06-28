@@ -1,20 +1,26 @@
-#include <iostream>
-#include "sala.h"
+#ifndef SESSAO_H
+#define SESSAO_H
 
-
-using namespace std;
+#include "Fileira.h"
+#include "Lista.h"
 
 class Sessao{
 private:
 	int numvendido;
 	int encerrado;
+	int inicio, fim;
 	string filme;
-	int horario[2];
+	int idSala;
+	int idSessao;
+	Lista <Fileira> fileiras;
 
 public:
 	Sessao();
+	Sessao(int idsala, int idsessao, int inic, int theEnd, string nomeFilme, int qtFileira, int numAssento);
 	void setStatus(int encerrado);
 	int getStatus();
+	int getInicio();
+	int getFim();
 	int getHorario();
 	void setHorario(int hor, int min);
 	int getDisponivel();
@@ -24,13 +30,39 @@ public:
 };
 
 Sessao::Sessao(){
-	 numvendido = 0;
-	 encerrado = 1;
+	inicio = 0;
+	fim = 0;
+	idSala = 0;
+	numvendido = 0;
+	encerrado = 1;
+	idSessao = 0;
 }
+
+Sessao::Sessao(int idsala, int idsessao, int inic, int theEnd, string nomeFilme, int qtFileira, int numAssento){
+	inicio = inic;
+	fim = theEnd;
+	idSala = idsala;
+	numvendido = 0;
+	encerrado = 1;
+	filme = nomeFilme;
+	idSessao = idsessao;
+
+	Fileira *f, fIn;
+	int i;
+	for(i=0;i<qtFileira;i++){
+		f = new Fileira(numAssento, 65+i);
+		fIn = *f;
+
+		delete(f);
+		fileiras.insereFim(fIn);
+
+	}
+
+}
+
 void Sessao::setStatus(int encerrado){
 	int capacidade;
-	capacidade = getCapacidade;
-
+	capacidade = 0;
 	if(capacidade - numvendido == 0){
 		encerrado = 0;
 	}
@@ -41,13 +73,11 @@ int Sessao::getStatus(){
 	return encerrado;
 }
 
-int Sessao::getHorario(){
-	return horario;
+int Sessao::getInicio(){
+	return inicio;
 }
-
-void Sessao::setHorario(int hor int min){
-	horario[0] = hor;
-	horario[1] = min;
+int Sessao::getFim(){
+	return fim;
 }
 
 int Sessao::getDisponivel(){
@@ -65,3 +95,5 @@ string Sessao::getFilme(){
 void Sessao::setFilme(string nomeFilme){
 	filme = nomeFilme;
 }
+
+#endif

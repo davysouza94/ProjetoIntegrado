@@ -1,7 +1,6 @@
 #ifndef FILEIRA_H
 #define FILEIRA_H
 
-using namespace std;
 
 #include "Assento.h"
 #include "Lista.h"
@@ -26,7 +25,7 @@ Fileira::Fileira(){
 	idFileira = 0;
 	numAssentos = 0;
 }
-Fileira::Fileira(int n,char idfila):assentos(){
+Fileira::Fileira(int n,char idfila){
 	numAssentos = n;
 	idFileira = idfila;
 	cout << "CriandoFila - " << idfila << std::endl;

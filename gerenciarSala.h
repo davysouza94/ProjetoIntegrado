@@ -4,10 +4,11 @@
 using namespace std;
 
 #include "Sala.h"
+#include "Lista.h"
 
 class gerenciarSala {
 private:
-	Lista<Sala> salas;
+	Lista <Sala> salas;
 
 public:
 	gerenciarSala();
@@ -16,10 +17,10 @@ public:
 	void situacao();
 	No<Sala>* buscarSala(int chave);
 	void ordenarSalas(); //ordena salas de acordo com o id
+	void inserirSessao();
 };
 
-gerenciarSala::gerenciarSala() :
-		salas() {
+gerenciarSala::gerenciarSala():salas() {
 }
 
 void gerenciarSala::inserirSala() {
@@ -36,7 +37,7 @@ void gerenciarSala::inserirSala() {
 	if (salas.busca(num) == NULL) {
 		Sala temp(num, numAssentos, numFileira);
 		salas.insereFim(temp);
-		std::cout << "Sala criada com sucesso" << std::endl;
+		std::cout << "Sala criada com sucesso" << std::endl << std::endl;
 	} else {
 		while (opc != 'S' && opc != 's' && opc != 'N' && opc != 'n') {
 			std::cout << "Sala " << num << " já existe, deseja substituir?"
@@ -47,14 +48,27 @@ void gerenciarSala::inserirSala() {
 				Sala temp(num, numAssentos, numFileira);
 				salas.deletaValor(num);
 				salas.insereFim(temp);
-				std::cout << "Sala alterada com sucesso" << std::endl;
+				std::cout << "Sala alterada com sucesso" << std::endl << std::endl;
 			} else if (opc == 'N' || opc == 'n') {
-				std::cout << "Sala não foi alterada" << std::endl;
+				std::cout << "Sala não foi alterada" << std::endl << std::endl;
 			} else {
 				std::cout << "Insira 'S' para Sim, 'N' para Nao" << endl;
 			}
 		}
 	}
+}
+
+void gerenciarSala::inserirSessao(){
+	int id;
+	No<Sala> *sala;
+	std::cout << "Indique o id da sala correspondente a sessão" << std::endl;
+	std::cin >> id;
+	sala = salas.busca(id);
+	if (sala == NULL){
+		std::cout << "Sala não encontrada" << std::endl;
+		return;
+	}
+	sala->elem.inserirSessao();
 }
 
 void gerenciarSala::exibeSalas() {

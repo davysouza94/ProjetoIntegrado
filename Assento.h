@@ -1,5 +1,8 @@
+
 #ifndef ASSENTO_H
 #define ASSENTO_H
+
+#include <iostream>
 
 class Assento{
 private:
@@ -24,7 +27,7 @@ Assento::Assento(int assento,int idfila){
 	idAssento = assento;
 	disponibilidade = 0;
 	idFileira = idfila;
-	cout<<"CriandoAssento" << idAssento << "-" << idFileira << "-" << std::endl;
+	std::cout <<"CriandoAssento" << idAssento << "-" << idFileira << "-" << std::endl;
 
 }
 Assento::~Assento(){

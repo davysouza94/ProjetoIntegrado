@@ -1,18 +1,18 @@
 #ifndef SALA_H
 #define SALA_H
 
-//#include "Lista.h"
-#include "Fileira.h"
 #include "Situacao.h"
+#include "Sessao.h"
+#include "Lista.h"
 
 class Sala{
 private:
 	int numSala;
 	int capacidade;
 	int qtFileira;
+	int qtSessoes;
 	Situacao situacao;
-
-	Lista < Fileira > fileiras;
+	Lista < Sessao > sessoes;
 
 public:
 	Sala();
@@ -23,6 +23,7 @@ public:
 	void setNumSala(int nSala);
 	void setCapacidade(int cap);
 	void setSituacao(int sit);
+	void inserirSessao();
 	friend ostream& operator<<(ostream& os, const Sala& elem);
 	bool operator==(const int num);
 	bool operator!=(const int num);
@@ -32,33 +33,35 @@ public:
 	bool operator<(const Sala elem);
 };
 
-Sala::Sala():fileiras(){
+Sala::Sala():sessoes(){
+	qtSessoes = 0;
 	qtFileira = 10;
 	numSala = 0;
 	capacidade = qtFileira*10;
 	situacao = disponivel;
 }
-Sala::Sala(int nsala, int numAssento, int qtFil):fileiras(){
+Sala::Sala(int nsala, int numAssento, int qtFil):sessoes(){
+	qtSessoes = 0;
 	numSala = nsala;
 	qtFileira = qtFil;
 	capacidade = numAssento*qtFileira;
 	situacao = disponivel;
-
-	int i;
-	Fileira *f, fIn;
-
-	for(i=0;i<qtFileira;i++){
-		f = new Fileira(numAssento, 65+i);
-		fIn = *f;
-
-		delete(f);
-		fileiras.insereFim(fIn);
-
-	}
-
-
 }
 
+void Sala::inserirSessao(){
+	Sessao *s, sIn;
+	string nome;
+	int inicio, fim;
+	std::cout << "Insira o nome do filme: " << std::endl;
+	std::cin >> nome;
+	std::cout << "Insira o inicio e o fim do filme: " << std::endl;
+	std::cin >> inicio >> fim;
+
+	s = new Sessao(numSala, qtSessoes, inicio, fim, nome, 10, 10);
+	sIn = *s;
+	sessoes.insereFim(sIn);
+	qtSessoes++;
+}
 int Sala::getNumSala(){
 	return numSala;
 }
