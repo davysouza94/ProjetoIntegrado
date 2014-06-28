@@ -44,11 +44,11 @@ void gerenciarSala::situacao(){
 	salas.exibe();
 	cout << "Informe o Numero da Sala: " << endl;
 	cin >> num;
-//	cout << "Informe a Situacao da Sala: " << endl;
-//	cin >> sit;
+	cout << "Informe a Situacao da Sala: " << endl;
+	cin >> sit;
 
 	salaEncontrada = salas.busca(num);
-	cout << salaEncontrada->elem << endl;
+	(salaEncontrada->elem).setSituacao(sit);
 }
 
 No<Sala>* gerenciarSala::buscarSala(int chave){
