@@ -19,8 +19,16 @@ class Enum
             DINHEIRO,
             CARTAO
         };
-    void ingressos(int x);
-    void inicPreco(float x);
+        void ingressos(int x){
+            if(x == INTEIRA)qtdIngressos++;
+            if(x == MEIA)qtdMeia++;
+        }
+
+        void inicPreco(int x,float precInt){
+            float precoInt =precInt,precoMeia=(precInt)/2;
+            if(x == INTEIRA)preco = precoMeia;
+            if(x == MEIA)preco = precoInt;
+        }
 };
 
 #endif // ENUM_H
