@@ -9,7 +9,7 @@ private:
 
 public:
 	Assento();
-	Assento(int idassento, int idfila);
+	Assento(int assento, int idfila);
 	bool verificaDisponibilidade();
 	~Assento();
 
@@ -20,11 +20,11 @@ Assento::Assento(){
 	disponibilidade = 0;
 	idFileira = 0;
 }
-Assento::Assento(int idassento,int idfila){
-	idAssento = idassento;
+Assento::Assento(int assento,int idfila){
+	idAssento = assento;
 	disponibilidade = 0;
 	idFileira = idfila;
-	cout<<"CriandoAssento" << idAssento << " " << idFileira << "" << std::endl;
+	cout<<"CriandoAssento" << idAssento << "-" << idFileira << "-" << std::endl;
 
 }
 Assento::~Assento(){
