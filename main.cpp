@@ -46,6 +46,7 @@ int main() {
 
 void gerenciaSala(gerenciarSala &salas){
 	int opcao;
+	opcao = 0;
 	cout << "Escolha uma das opcoes: " << endl;
 			cout << "0 - Voltar" << endl;
 			cout << "1 - Criar Sala" << endl;
