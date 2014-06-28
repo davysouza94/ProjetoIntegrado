@@ -48,7 +48,12 @@ void gerenciarSala::situacao(){
 	cin >> sit;
 
 	salaEncontrada = salas.busca(num);
-	(salaEncontrada->elem).setSituacao(sit);
+	try{
+		if(salaEncontrada == NULL) throw(-1);
+		(salaEncontrada->elem).setSituacao(sit);
+	}catch(int erro){
+		if(erro == -1) std::cout << "Sala Nao Existente" << std::endl;
+	}
 }
 
 No<Sala>* gerenciarSala::buscarSala(int chave){

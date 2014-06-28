@@ -3,6 +3,9 @@
 #include "gerenciarSala.h"
 
 using namespace std;
+void gerenciaSala(gerenciarSala &salas);
+void gerenciaSessao(gerenciarSala &salas);
+void gerenciaVenda(gerenciarSala &salas);
 
 int main() {
 	gerenciarSala salas;
@@ -12,37 +15,81 @@ int main() {
 	while (opcao != 0) {
 		cout << "Escolha uma das opcoes: " << endl;
 		cout << "0 - Finalizar Programa" << endl;
-		cout << "1 - Criar Sala" << endl;
-		cout << "2 - Remover Sala" << endl;
-		cout << "3 - Exibir Salas" << endl;
-		cout << "4 - Capacidade" << endl;
-		cout << "5 - Situacao" << endl;
+		cout << "1 - Gerenciar Salas" << endl;
+		cout << "2 - Gerenciar Sessoes" << endl;
+		cout << "3 - Gerenciar Vendas" << endl;
+		cout << "4 - " << endl;
+		cout << "5 - " << endl;
 		cin >> opcao;
 
 		switch (opcao) {
 		case 0:
 			return 0;
 		case 1:
-			salas.inserirSala();
+			gerenciaSala(salas);
 			break;
 		case 2:
-			try{
-				salas.situacao();
-			}catch(...){
-				cout << "bleh";
-			}
+			gerenciaSessao(salas);
 			break;
 		case 3:
-			salas.exibeSalas();
+			gerenciaVenda(salas);
 			break;
 		case 4:
 			break;
 		case 5:
-			salas.situacao();
-
 			break;
 		default:
 			break;
 		}
 	}
 }
+
+
+void gerenciaSala(gerenciarSala &salas){
+	int opcao;
+	cout << "Escolha uma das opcoes: " << endl;
+			cout << "0 - Voltar" << endl;
+			cout << "1 - Criar Sala" << endl;
+			cout << "2 - Set Situacao" << endl;
+			cout << "3 - Exibir Salas" << endl;
+			cout << "4 - Capacidade" << endl;
+			cout << "5 - Situacao" << endl;
+			cin >> opcao;
+
+			switch (opcao) {
+			case 0:
+				return;
+			case 1:
+				salas.inserirSala();
+				break;
+			case 2:
+				try{
+					salas.situacao();
+				}catch(...){
+					cout << "bleh";
+				}
+				break;
+			case 3:
+				salas.exibeSalas();
+				break;
+			case 4:
+				break;
+			case 5:
+				salas.situacao();
+
+				break;
+			default:
+				break;
+			}
+}
+
+void gerenciaSessao(gerenciarSala &salas){
+
+}
+
+void gerenciaVenda(gerenciarSala &salas){
+
+}
+
+
+
