@@ -1,0 +1,5 @@
+enum formaPagMentO
+        {
+            DINHEIRO,
+            CARTAO
+        };
