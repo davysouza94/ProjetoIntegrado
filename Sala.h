@@ -4,6 +4,7 @@
 #include "Situacao.h"
 #include "Sessao.h"
 #include "Lista.h"
+#include <string>
 
 class Sala{
 private:
