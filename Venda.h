@@ -45,6 +45,7 @@ void Venda::emitirIngressos(){
 
 void Venda::addIngressos(){
 	int tipo;
+
 	cout << "Escolha o Tipo do Ingresso:" << endl;
 	cout << "1 - Inteiro" << endl << "2 - Meio" << endl;
 	cin >> tipo;
@@ -55,6 +56,11 @@ void Venda::addIngressos(){
 
 	valorTotal = valorTotal + calculaValorTotal(qtdIng, tipo);
 	cout << "Valor Total: " << valorTotal << endl;
+	tipo--;
+	Ingresso ing((Tipo)tipo);
+	
+	for(int i = 0; i < qtdIng; i++)
+			ingressos.insereFim(ing);
 }
 
 void Venda::removerIngressos(){
