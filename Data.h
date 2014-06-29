@@ -1,6 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include<string>
+
 class Data{
 private:
 //horario
@@ -9,6 +11,9 @@ private:
 //data
 	int dtInic[3];
 	int dtFim[3];
+
+//venda
+	string dtVenda;
 
 public:
 	int* getHoraInic();
@@ -22,6 +27,9 @@ public:
 
 	int* getDtFim();
 	void setDtFim(int dia, int mes, int ano);
+
+	string getDtVenda();
+	void setDtVenda(string data);
 };
 
 int* Data::getHoraInic(){
@@ -57,6 +65,13 @@ void Data::setDtFim(int dia, int mes, int ano){
 	dtFim[0] = dia;
 	dtFim[1] = mes;
 	dtFim[2] = ano;
+}
+
+string Data::getDtVenda(){
+	return dtVenda;
+}
+void Data::setDtVenda(string data){
+	dtVenda = data;
 }
 
 #endif

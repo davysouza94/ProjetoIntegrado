@@ -1,13 +1,15 @@
 #include <iostream>
 #include "gerenciarSala.h"
+#include "venderIngresso.h"
 
 using namespace std;
 void gerenciaSala(gerenciarSala &salas);
 void gerenciaSessao(gerenciarSala &salas);
-void gerenciaVenda(gerenciarSala &salas);
+void gerenciaVenda(venderIngresso &vendas);
 
 int main() {
 	gerenciarSala salas;
+	venderIngresso vendas;
 
 	int opcao = 1;
 
@@ -31,7 +33,7 @@ int main() {
 			gerenciaSessao(salas);
 			break;
 		case 3:
-			gerenciaVenda(salas);
+			gerenciaVenda(vendas);
 			break;
 		case 4:
 			break;
@@ -111,8 +113,8 @@ void gerenciaSessao(gerenciarSala &salas){
 			}
 }
 
-void gerenciaVenda(gerenciarSala &salas){
-
+void gerenciaVenda(venderIngresso &vendas){
+	vendas.gerencia();
 }
 
 
