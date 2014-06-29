@@ -17,35 +17,38 @@ public:
 
 void venderIngresso::gerencia(){
 	Venda v;
-	int opcao;
+	int opcao = -1;
 	char a = 'S';
 
-	cout << "Escolha uma das opcoes: " << endl;
-	cout << "0 - Voltar" << endl;
-	cout << "1 - Adicionar Ingresso" << endl;
-	cout << "2 - Remover Ingresso" << endl;
-	cout << "3 - Emitir Ingresso" << endl;
-	cin >> opcao;
+	while(opcao != -1){
+		cout << "Escolha uma das opcoes: " << endl;
+		cout << "0 - Voltar" << endl;
+		cout << "1 - Adicionar Ingresso" << endl;
+		cout << "2 - Remover Ingresso" << endl;
+		cout << "3 - Emitir Ingresso" << endl;
+		cin >> opcao;
 
-	switch (opcao) {
-		case 0:
-			return;
-		case 1:
-			while(a == 'S' || a == 's'){
-				v.addIngressos();
-				cout << "Deseja adicionar outros ingressos?" << endl;
-				cin >> a;
-			}
-			break;
-		case 2:
-			v.removerIngressos();
-			break;
-		case 3:
-			v.emitirIngressos();
-			vendas.insereFim(v);
-			break;
-		default:
-			break;
+		switch (opcao) {
+			case 0:
+				return;
+			case 1:
+				while(a == 'S' || a == 's'){
+					v.addIngressos();
+					cout << "Deseja adicionar outros ingressos?" << endl;
+					cin >> a;
+				}
+				break;
+			case 2:
+				v.removerIngressos();
+				break;
+			case 3:
+				v.emitirIngressos();
+				vendas.insereFim(v);
+				return;
+				break;
+			default:
+				break;
+		}
 	}
 }
 
