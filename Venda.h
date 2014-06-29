@@ -56,11 +56,7 @@ void Venda::addIngressos(){
 
 	valorTotal = valorTotal + calculaValorTotal(qtdIng, tipo);
 	cout << "Valor Total: " << valorTotal << endl;
-	tipo--;
-	Ingresso ing((Tipo)tipo);
-	
-	for(int i = 0; i < qtdIng; i++)
-			ingressos.insereFim(ing);
+
 }
 
 void Venda::removerIngressos(){
